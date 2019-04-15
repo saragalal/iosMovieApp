@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import "MovieModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface FavDetailsViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *favImg;
+@property (weak, nonatomic) IBOutlet UITextView *favover;
+@property (weak, nonatomic) IBOutlet UILabel *favTitle;
+@property (weak, nonatomic) IBOutlet UILabel *releaseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+- (IBAction)unfavbt:(id)sender;
 
+@property MovieModel *movie;
+
+@property NSMutableArray *favarray;
 @end
 
-NS_ASSUME_NONNULL_END
+

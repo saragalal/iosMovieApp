@@ -19,6 +19,34 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    _favTitle.text=[_movie titles];
+    
+    _favover.text=[_movie overview];
+ 
+    _ratingLabel.text=[_movie rate];
+   
+    _releaseLabel.text=[_movie releaseDate];
+    
+    
+    NSString *posterstr =@"http://image.tmdb.org/t/p/w185";
+    if([_movie imagePath] && ![[_movie imagePath] isKindOfClass:[NSNull class]]){
+        
+        NSString *imgStr= [posterstr stringByAppendingString:[_movie imagePath]];
+     
+        [_favImg sd_setImageWithURL:[NSURL URLWithString:imgStr]
+                    placeholderImage:[UIImage imageNamed:@"1.png"]];
+    } else {
+        UIImage *image= [UIImage imageNamed:@"noimage.png"];
+        
+        [_favImg setImage:image];
+    }
+    
+}
+    
+
+
 /*
 #pragma mark - Navigation
 
@@ -29,4 +57,18 @@
 }
 */
 
+- (IBAction)unfavbt:(id)sender {
+    
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:[_movie movieID]];
+//   _favarray = [_favarray filteredArrayUsingPredicate:predicate];
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithArray:_favarray];
+    for (int i=0; i<[_favarray count]; i++) {
+        if([_favarray[i] isEqualToString:[_movie movieID]]) {
+            [_favarray removeObject:_favarray[i]];
+        }
+    }
+  
+    _favarray = arr;
+}
 @end

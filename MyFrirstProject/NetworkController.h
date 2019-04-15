@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
+#import "MovieModel.h"
+#import "FirstViewController.h"
 @interface NetworkController : NSObject
 
+-(void)getMoviesData :(NSString *) str1 :(id) vc;
+-(void)getVideoData :(NSString *)str1 :(id) detailsvc;
+//@property id vc;
+//@property id detailsvc;
+
++(NetworkController*) sharedInstance;
+-(void)getReviewsData :(NSString *)str1 :(id) detailsvc;
 @end
 
-NS_ASSUME_NONNULL_END
+

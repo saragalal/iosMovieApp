@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieModel.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#import "NetworkController.h"
 
-@interface FavViewController : UIViewController
+@interface FavViewController : UIViewController <UITableViewDelegate , UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *myTable;
+
+
+
+
 
 @end
 
-NS_ASSUME_NONNULL_END
+

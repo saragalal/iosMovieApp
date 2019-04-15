@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+
 
 @interface MovieModel : NSObject
 
+@property NSString *movieID;
+@property  NSString *overview;
+@property  NSString *rate;
+@property  NSString *imagePath;
+@property  NSString *releaseDate;
+@property  NSString *titles;
+@property NSString *backPath;
+-(id)initWithDictionary:(NSDictionary *)sourceDictionary;
+
+
 @end
 
-NS_ASSUME_NONNULL_END
+
